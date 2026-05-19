@@ -7,7 +7,9 @@ import {
 } from 'lucide-react'
 import { useT } from '@/i18n/useI18n'
 import { ProductCard } from '@/components/ProductCard'
-import { BrandMark } from '@/components/BrandMark'
+import { AnimatedLogo } from '@/components/brand/AnimatedLogo'
+import { ParticleField, AmbientGlow } from '@/components/brand/Atmosphere'
+import { AuthBadge } from '@/components/ui/AuthBadge'
 import { featured, BRANDS } from '@/data/products'
 import { BUSINESS } from '@/data/business'
 
@@ -40,7 +42,10 @@ function Hero() {
       {/* Mesh grid */}
       <div className="absolute inset-0 mesh-grid opacity-50 pointer-events-none" />
 
-      {/* Neon glow */}
+      {/* Drifting particles */}
+      <ParticleField count={32} />
+
+      {/* Parallax neon glow */}
       <motion.div
         style={{ y, opacity }}
         className="absolute top-[10%] left-1/2 -translate-x-1/2 w-[900px] h-[900px] rounded-full pointer-events-none"
@@ -66,13 +71,21 @@ function Hero() {
           initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}
           className="lg:col-span-7"
         >
-          {/* Featured logo mark — large, floating, pulsing — only on lg+ where the right column also shows */}
+          {/* Featured logo mark — large, floating, pulsing, click-rippling, magnetic */}
           <motion.div
             initial={{ opacity: 0, scale: 0.92 }} animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
             className="hidden lg:flex mb-6 -ml-1"
           >
-            <BrandMark size="xl" pulse float asLink={false} priority />
+            <AnimatedLogo variant="hero" pulse float interactive asLink={false} priority />
+          </motion.div>
+
+          {/* Holographic authenticity badge */}
+          <motion.div
+            initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            className="hidden lg:flex mb-4">
+            <AuthBadge size="md" />
           </motion.div>
 
           <motion.div

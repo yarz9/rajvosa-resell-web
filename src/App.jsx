@@ -3,6 +3,7 @@ import { Routes, Route, useLocation } from 'react-router-dom'
 import { Nav } from './components/Nav'
 import { Footer } from './components/Footer'
 import { LoadingScreen } from './components/LoadingScreen'
+import { ToastProvider } from './components/ui/Toast'
 
 import Home          from './pages/Home'
 import Shop          from './pages/Shop'
@@ -23,7 +24,7 @@ function ScrollToTop() {
 
 export default function App() {
   return (
-    <>
+    <ToastProvider>
       <LoadingScreen />
       <ScrollToTop />
       <Nav />
@@ -42,6 +43,6 @@ export default function App() {
         </Routes>
       </main>
       <Footer />
-    </>
+    </ToastProvider>
   )
 }

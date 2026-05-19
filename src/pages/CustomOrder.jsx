@@ -6,10 +6,12 @@ import {
 import { useT } from '@/i18n/useI18n'
 import { BRANDS } from '@/data/products'
 import { BUSINESS } from '@/data/business'
-import { BrandMark } from '@/components/BrandMark'
+import { AnimatedLogo } from '@/components/brand/AnimatedLogo'
+import { useToast } from '@/components/ui/Toast'
 
 export default function CustomOrder() {
   const t = useT()
+  const { push } = useToast()
   const [s, setS] = useState({
     name: '', email: '', phone: '', ig: '', brand: '', product: '',
     size: '', color: '', budget: '', url: '', notes: '',
@@ -23,12 +25,15 @@ export default function CustomOrder() {
   const submit = (e) => {
     e.preventDefault()
     setErr('')
-    if (!s.name.trim()) return setErr('Add your name.')
-    if (!/^\S+@\S+\.\S+$/.test(s.email)) return setErr('Add a valid email.')
-    if (!s.product.trim()) return setErr('Add the product name or a link.')
+    if (!s.name.trim())          { push({ kind: 'error', title: 'Add your name', body: 'We need it to reply.' }); return setErr('Add your name.') }
+    if (!/^\S+@\S+\.\S+$/.test(s.email)) { push({ kind: 'error', title: 'Email looks off', body: 'Double-check the format.' }); return setErr('Add a valid email.') }
+    if (!s.product.trim())       { push({ kind: 'error', title: 'What are we sourcing?', body: 'Drop a product name or link.' }); return setErr('Add the product name or a link.') }
     setSending(true)
     // Concept preview — simulate send.
-    setTimeout(() => { setSending(false); setDone(true) }, 900)
+    setTimeout(() => {
+      setSending(false); setDone(true)
+      push({ kind: 'success', title: 'Order request submitted', body: 'A real human will reply within 24 hours.' })
+    }, 900)
   }
 
   const waMsg = encodeURIComponent(
@@ -62,7 +67,7 @@ export default function CustomOrder() {
                   initial={{ opacity: 0, scale: 0.97 }} animate={{ opacity: 1, scale: 1 }}
                   className="vault-card p-12 md:p-16 text-center">
                   <div className="flex justify-center mb-7">
-                    <BrandMark size="lg" pulse float asLink={false} />
+                    <AnimatedLogo variant="default" size={64} pulse float asLink={false} />
                   </div>
                   <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[var(--color-olive-line)] bg-[var(--color-olive-soft)] mb-5">
                     <CheckCircle2 size={12} className="text-[var(--color-olive-glow)]" />

@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { Instagram, MessageCircle, Mail, ArrowUpRight, Heart } from 'lucide-react'
 import { useT } from '@/i18n/useI18n'
 import { BUSINESS } from '@/data/business'
-import { BrandMark } from '@/components/BrandMark'
+import { AnimatedLogo } from '@/components/brand/AnimatedLogo'
 
 export function Footer() {
   const t = useT()
@@ -22,7 +22,7 @@ export function Footer() {
         {/* Columns */}
         <div className="grid md:grid-cols-4 gap-10 md:gap-14 border-t border-white/[0.06] pt-12">
           <div className="md:col-span-2">
-            <BrandMark size="lg" pulse float />
+            <AnimatedLogo variant="default" size={64} pulse float />
             <p className="text-[14px] text-white/55 mt-5 max-w-[420px] leading-relaxed">
               Authentic streetwear and limited-release sneakers, sourced and delivered to Bosnia & Herzegovina.
               Custom orders welcome via Instagram or our form.

@@ -1,17 +1,23 @@
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useT } from '@/i18n/useI18n'
-import { BrandMark } from '@/components/BrandMark'
+import { AnimatedLogo } from '@/components/brand/AnimatedLogo'
+import { ParticleField, AmbientGlow } from '@/components/brand/Atmosphere'
 
-// Futuristic vault-opening loader. Olive neon, scanline,
-// terminal-style progress counter. Fades after window.load + min 1.4s.
+// Futuristic vault-opening loader. Olive neon, scanline, light-sweep,
+// terminal-style progress counter. First-visit gets the full 1.6s
+// splash; repeat visits get a quick 600ms gate to feel instant.
+const SEEN_KEY = 'rajvosa_seen_intro'
+
 export function LoadingScreen() {
   const t = useT()
   const [hidden, setHidden] = useState(false)
   const [pct, setPct] = useState(0)
 
   useEffect(() => {
-    const min = 1400
+    const firstVisit = (() => { try { return !sessionStorage.getItem(SEEN_KEY) } catch { return true } })()
+    const min = firstVisit ? 1600 : 600
+    try { sessionStorage.setItem(SEEN_KEY, '1') } catch {}
     const start = performance.now()
     let raf
     const tick = (now) => {
@@ -45,8 +51,10 @@ export function LoadingScreen() {
           <div className="absolute inset-0 mesh-grid opacity-40" />
 
           {/* Radial olive glow */}
-          <div className="absolute inset-0 pointer-events-none"
-            style={{ background: 'radial-gradient(600px 400px at 50% 50%, rgba(184,255,90,0.12), transparent 70%)' }} />
+          <AmbientGlow size={900} intensity={0.14} className="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+
+          {/* Drifting particles */}
+          <ParticleField count={22} />
 
           {/* Scanline */}
           <motion.div
@@ -55,6 +63,18 @@ export function LoadingScreen() {
             animate={{ y: ['0%', '100%'] }}
             transition={{ duration: 1.4, repeat: Infinity, ease: 'linear' }}
             style={{ boxShadow: '0 0 24px var(--color-olive-glow)' }}
+          />
+
+          {/* Rotating light sweep across the viewport */}
+          <motion.div
+            className="absolute inset-0 pointer-events-none"
+            initial={{ rotate: 0 }}
+            animate={{ rotate: 360 }}
+            transition={{ duration: 24, repeat: Infinity, ease: 'linear' }}
+            style={{
+              background: 'conic-gradient(from 0deg at 50% 50%, transparent 0deg, rgba(184,255,90,0.05) 18deg, transparent 36deg, transparent 360deg)',
+              mixBlendMode: 'screen',
+            }}
           />
 
           {/* Center mark */}
@@ -66,7 +86,7 @@ export function LoadingScreen() {
           >
             <div className="eyebrow mb-7">RAJVOSA · EST. SARAJEVO</div>
             <div className="flex justify-center mb-7">
-              <BrandMark size="hero" pulse float asLink={false} priority />
+              <AnimatedLogo variant="loader" pulse float asLink={false} priority />
             </div>
             <div className="wordmark glow font-display font-bold text-[clamp(28px,4vw,44px)] tracking-[0.05em]">
               RAJVOSA<span className="accent">/</span>RESELL
