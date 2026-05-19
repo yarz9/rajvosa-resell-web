@@ -1,172 +1,116 @@
-# Raft Boys — concept preview by Cloz Digital
+# Rajvosa Resell — concept preview by Cloz Digital
 
-A cinematic, conversion-focused redesign of [raftboys.ba](https://raftboys.ba).
-Built as a **concept preview** to show the client what a world-class
-adventure-tourism site looks like for their brand.
+A cinematic, neon-illuminated e-commerce concept for a Bosnian
+streetwear reseller. Built as a **concept preview** for Rajvosa
+Resell — your plug for exclusive fashion, sourced and delivered
+to Bosnia in approximately three weeks with a secure 50% deposit.
+
+Live brand surfaces:
+
+- Instagram: [@rajvosaresell](https://instagram.com/rajvosaresell)
 
 ## What's inside
 
-- **13 sections**: Hero, Trust Bar, Experiences, Why Choose, Guides,
-  Timeline, Reviews, Gallery, Packages, FAQ, Booking, Map, Footer
-- **CLOZ.DIGITAL PREVIEW** loading screen on initial load
-- **Framer Motion** scroll-triggered reveals, magnetic CTAs, spotlight
-  cards, count-up stats, lightbox gallery, animated FAQ accordions
-- **EN + BCS** i18n with browser-detection + URL `?lang=` override
-- **WhatsApp deep-link** FAB + mobile sticky Book-Now CTA
-- **SEO**: OG + Twitter cards, hreflang, JSON-LD `LocalBusiness` +
-  `TouristTrip` schema, structured booking form
-- **Mobile-first** responsive layout, fully touch-optimised
+- **9 pages**: Home · Shop · Product Detail · Brands · Custom Order ·
+  How It Works · FAQ · Contact · Order Tracking · 404
+- **12 seeded products** with the full admin-ready schema: slug, name,
+  brand, category, price, depositAmount, currency, deliveryEstimate,
+  images, sizes, description, featured, tags
+- **9 brand catalogue**: Corteiz, Trapstar, Essentials, Denim Tears,
+  Ami Paris, Nike, Jordan, Adidas, Football Jerseys
+- **Living brand system**: `AnimatedLogo` with 4 variants (default,
+  hero, loader, icon), magnetic hover, click ripple, light-sweep
+  reflection, halo glow, multi-layer drop-shadow palette
+- **Atmosphere layers**: ParticleField, AmbientGlow, LightStreak,
+  MeshGrid — drop into any section as a backdrop
+- **Branded toast system** with the AnimatedLogo icon, glass
+  surface, neon-accent stripe
+- **Holographic Authenticity badge** with shimmering gradient
+- **Loading screen** with rotating conic light-sweep, first-visit
+  splash gate (1.6s) vs repeat-visit gate (600ms) via sessionStorage
+- **EN + BHS** i18n with browser detection + URL `?lang=` override
+- **Order tracker** at `/track` with sample order `RR-2025-0421`
+- **SEO**: OpenGraph + Twitter cards, JSON-LD Store schema
+- **prefers-reduced-motion** honoured throughout
 
-## Run locally
+## Brand system
+
+Single source of truth for the logo:
+
+```js
+// src/lib/brand.js
+export const BRAND_LOGO = '/brand/rajvosa-resell-logo.png'
+```
+
+Logo file lives at `public/brand/rajvosa-resell-logo.png`. Vite serves
+anything under `public/` at the site root — replace the file, refresh,
+done. The `AnimatedLogo` component falls back to a styled wordmark
+if the file is missing so the brand never visibly breaks.
+
+## Palette
+
+| Token | Hex |
+|---|---|
+| Background (vault) | `#0A0A0A` |
+| Olive primary | `#8AA84F` |
+| Olive deep | `#6B7F3A` |
+| **Olive neon glow** | `#B8FF5A` |
+| Ink | `#FFFFFF` |
+
+Typography: Space Grotesk (display) · Inter (body) · JetBrains Mono
+(technical).
+
+## Stack
+
+- React 19 + Vite 6 + Tailwind CSS v4
+- React Router 7
+- Framer Motion
+- Lucide React
+- Express (production server, Railway-ready)
+- No TypeScript / GSAP / Lenis / Stripe / Supabase ceremony — those
+  are tracked as Phase 2 / Phase 3 additions when the real flow
+  needs them.
+
+## Develop
 
 ```bash
 npm install
-npm run dev
+npm run dev          # vite dev server
+npm run build        # production build → dist/
+npm start            # serve dist/ via the Express server
 ```
 
-Opens on `http://localhost:5173`.
+## Deploy
 
-## Build for production
+Railway-ready. Nixpacks pins Node 20. The Express server in
+`server.js` serves `dist/` with compression, no-cache on
+`index.html`, 1-year immutable on hashed assets, and an SPA fallback
+for client-side routes.
 
-```bash
-npm run build
-npm run preview
-```
+The `/health` endpoint returns a trivial 200 for Railway's deployment
+probe.
 
-## Before going live — required swaps
+## Operator next steps
 
-### 1. Real photography
+1. Drop the final logo PNG at `public/brand/rajvosa-resell-logo.png`
+2. Replace the Unsplash placeholder URLs in `src/data/products.js`
+   with real product photography
+3. Set the real WhatsApp number + Instagram handle in
+   `src/data/business.js`
+4. (Optional) Add `public/brand/rajvosa-resell-logo.webp` next to the
+   PNG for a 60–70% smaller payload on modern browsers
 
-Every image URL lives in `src/data/assets.js`. Today it points at
-high-resolution Unsplash stock that matches the rafting / Bosnia
-aesthetic. Replace each `IMG.*` entry with the client's real
-photography:
+## Phase 2 / 3 backlog (deferred)
 
-```js
-// src/data/assets.js
-export const IMG = {
-  heroPoster: '/images/hero-neretva-rapids.jpg', // ← drop file in /public/images
-  heroVideo:  '/video/hero-reel.mp4',            // ← optional hero loop
-  expRafting: '/images/exp-rafting.jpg',
-  // ...
-}
-```
+- Stripe checkout for the 50% deposit (currently routes to WhatsApp)
+- Supabase / Postgres backend + admin dashboard for orders
+- Real Instagram feed via the IG Basic Display API
+- Animated product rarity indicators (requires `rarity` field on
+  the product schema)
+- Brand sound toggle (requires the actual audio asset)
+- Instagram-style story highlight cards
+- Cursor-following olive glow across the entire viewport
 
-### 2. Booking endpoint
+—
 
-The booking form posts to `import.meta.env.VITE_BOOKING_ENDPOINT`.
-With no env var set, it runs in **concept-preview mode**: simulates
-a 700ms roundtrip and shows the success state without actually
-sending anything.
-
-To wire it up, create `.env` (or set on your host):
-
-```env
-VITE_BOOKING_ENDPOINT=https://cloz.digital/api/public/inquiry
-# OR
-VITE_BOOKING_ENDPOINT=https://formspree.io/f/<your-id>
-# OR
-VITE_BOOKING_ENDPOINT=https://api.web3forms.com/submit
-```
-
-The form posts JSON with these fields:
-
-```json
-{
-  "name": "...",
-  "email": "...",
-  "phone": "...",
-  "date": "YYYY-MM-DD",
-  "package": "classic | premium | weekend",
-  "group": 2,
-  "dietary": "...",
-  "message": "...",
-  "consent": true,
-  "lang": "en | bcs",
-  "source": "raftboys_website",
-  "submitted_at": "ISO 8601"
-}
-```
-
-If the network call fails, the visitor sees an error message AND
-the WhatsApp button stays one tap away — the prospect never leaves
-without a route to contact us.
-
-### 3. Pricing + packages
-
-`src/data/content.js` → `PACKAGES` array. Update `priceFrom`,
-`features`, descriptions in the dictionary (`pkg.*`).
-
-### 4. Guide bios
-
-`src/data/content.js` → `GUIDES` array. Real names, certifications,
-years of experience. Bilingual role labels live in
-`src/i18n/dictionary.js`.
-
-### 5. Reviews
-
-`src/data/content.js` → `REVIEWS` array. Replace placeholder quotes
-with real ones from Google / TripAdvisor. **Honesty note**: the
-current entries are clearly marked as samples — never publish them
-as if real.
-
-### 6. SEO
-
-- Add `/public/og.jpg` (1200×630) — a hero shot for OG previews
-- Update `index.html` `<title>`, description, structured data
-- Add `/public/favicon.ico` and `/public/apple-touch-icon.png`
-
-## Tech stack
-
-- React 19 + Vite 6
-- Tailwind CSS v4
-- Framer Motion 11
-- lucide-react
-
-## Architecture notes
-
-**No backend.** Everything is static. The booking form is the only
-network-touching piece, and it's optional (concept-preview mode if
-no endpoint is set).
-
-**CMS seam.** All content + imagery lives in `src/data/*.js` and
-`src/i18n/dictionary.js`. Swapping in a real CMS (Sanity, Contentful)
-is a one-evening migration — these files become the schema.
-
-**Performance.**
-- Images use native `loading="lazy"` everywhere except hero
-- Framer Motion is the only motion JS; respects
-  `prefers-reduced-motion`
-- No web fonts beyond Inter + Plus Jakarta Sans
-- No tracker scripts shipped
-
-## What's NOT in this preview (and the honest reason)
-
-- **CMS UI** — content lives in `src/data/*.js`. A real CMS is its
-  own engagement once the client signs off the design.
-- **Blog** — no index/post pages. Easy to add later; not required
-  to win the pitch.
-- **Real e-sig / payment** — the booking form captures intent and
-  routes to a human reply. Payment integration (Stripe / Wise /
-  bank QR) is phase 2.
-- **Interactive map with custom markers** — current map is a
-  styled Google Maps iframe (no API key required, zero JS, zero
-  tracking). Replace with Leaflet + custom marker once Phase 2
-  budget is approved.
-
-## Concept-preview loading screen
-
-The "CLOZ.DIGITAL PREVIEW" overlay only appears on **initial site
-load**. It fades out as soon as `window.load` fires (or after
-~1.2s minimum + 2.4s hard cap, whichever comes first). On
-`prefers-reduced-motion` it shortens to ~200ms.
-
-To remove it when the client signs and we ship for real:
-
-```jsx
-// src/App.jsx
-// Delete this line:
-<LoadingScreen />
-```
-
-— Cloz Digital
+Built by Cloz Digital. Sarajevo. Worldwide pieces.
