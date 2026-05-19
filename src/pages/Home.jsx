@@ -7,6 +7,7 @@ import {
 } from 'lucide-react'
 import { useT } from '@/i18n/useI18n'
 import { ProductCard } from '@/components/ProductCard'
+import { BrandMark } from '@/components/BrandMark'
 import { featured, BRANDS } from '@/data/products'
 import { BUSINESS } from '@/data/business'
 
@@ -65,6 +66,15 @@ function Hero() {
           initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}
           className="lg:col-span-7"
         >
+          {/* Featured logo mark — large, floating, pulsing — only on lg+ where the right column also shows */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.92 }} animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+            className="hidden lg:flex mb-6 -ml-1"
+          >
+            <BrandMark size="xl" pulse float asLink={false} priority />
+          </motion.div>
+
           <motion.div
             initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}

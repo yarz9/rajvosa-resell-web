@@ -6,6 +6,7 @@ import {
 import { useT } from '@/i18n/useI18n'
 import { BRANDS } from '@/data/products'
 import { BUSINESS } from '@/data/business'
+import { BrandMark } from '@/components/BrandMark'
 
 export default function CustomOrder() {
   const t = useT()
@@ -60,9 +61,14 @@ export default function CustomOrder() {
                 <motion.div key="done"
                   initial={{ opacity: 0, scale: 0.97 }} animate={{ opacity: 1, scale: 1 }}
                   className="vault-card p-12 md:p-16 text-center">
-                  <div className="inline-flex w-20 h-20 rounded-full bg-[var(--color-olive-soft)] border-2 border-[var(--color-olive-line)] items-center justify-center mb-6"
-                    style={{ boxShadow: '0 0 32px -4px rgba(184,255,90,0.4)' }}>
-                    <CheckCircle2 size={32} className="text-[var(--color-olive-glow)]" />
+                  <div className="flex justify-center mb-7">
+                    <BrandMark size="lg" pulse float asLink={false} />
+                  </div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[var(--color-olive-line)] bg-[var(--color-olive-soft)] mb-5">
+                    <CheckCircle2 size={12} className="text-[var(--color-olive-glow)]" />
+                    <span className="font-mono text-[10.5px] tracking-[0.22em] uppercase text-[var(--color-olive-glow)]">
+                      REQUEST LOCKED IN
+                    </span>
                   </div>
                   <h3 className="font-display font-semibold text-[clamp(28px,3.6vw,40px)] tracking-tight">
                     {t('co.success.t')}

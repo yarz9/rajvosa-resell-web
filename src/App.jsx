@@ -13,6 +13,7 @@ import HowItWorks    from './pages/HowItWorks'
 import FAQ           from './pages/FAQ'
 import Contact       from './pages/Contact'
 import OrderTracking from './pages/OrderTracking'
+import NotFound      from './pages/NotFound'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -37,7 +38,7 @@ export default function App() {
           <Route path="/faq"         element={<FAQ />} />
           <Route path="/contact"     element={<Contact />} />
           <Route path="/track"       element={<OrderTracking />} />
-          <Route path="*"            element={<Home />} />
+          <Route path="*"            element={<NotFound />} />
         </Routes>
       </main>
       <Footer />

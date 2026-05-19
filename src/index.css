@@ -90,6 +90,51 @@ input, textarea, select, button { font: inherit; }
   100% { transform: translateY(120%); opacity: 0; }
 }
 
+/* ─── Logo animations — multi-layer neon glow + slow float ──────── */
+@keyframes logo-glow-pulse {
+  0%, 100% {
+    filter:
+      drop-shadow(0 0 6px rgba(184, 255, 90, 0.35))
+      drop-shadow(0 0 18px rgba(184, 255, 90, 0.22))
+      drop-shadow(0 0 36px rgba(184, 255, 90, 0.10));
+  }
+  50% {
+    filter:
+      drop-shadow(0 0 10px rgba(184, 255, 90, 0.55))
+      drop-shadow(0 0 28px rgba(184, 255, 90, 0.32))
+      drop-shadow(0 0 60px rgba(184, 255, 90, 0.18));
+  }
+}
+@keyframes logo-float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-6px); }
+}
+@keyframes logo-fade-in {
+  0%   { opacity: 0; transform: translateY(8px) scale(0.96); }
+  100% { opacity: 1; transform: translateY(0)    scale(1); }
+}
+
+.logo-mark { /* base: always-on subtle glow + entrance */
+  animation: logo-fade-in 700ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  transition: filter 320ms var(--ease-curve), transform 320ms var(--ease-curve);
+  will-change: filter, transform;
+}
+.logo-mark.pulse { animation: logo-fade-in 700ms cubic-bezier(0.22, 1, 0.36, 1) both, logo-glow-pulse 3.5s ease-in-out infinite 700ms; }
+.logo-mark.float { animation: logo-fade-in 700ms cubic-bezier(0.22, 1, 0.36, 1) both, logo-float 6s ease-in-out infinite 700ms; }
+.logo-mark.pulse.float {
+  animation:
+    logo-fade-in 700ms cubic-bezier(0.22, 1, 0.36, 1) both,
+    logo-glow-pulse 3.5s ease-in-out infinite 700ms,
+    logo-float 6s ease-in-out infinite 700ms;
+}
+.logo-mark:hover {
+  transform: scale(1.04);
+  filter:
+    drop-shadow(0 0 14px rgba(184, 255, 90, 0.7))
+    drop-shadow(0 0 32px rgba(184, 255, 90, 0.45))
+    drop-shadow(0 0 70px rgba(184, 255, 90, 0.25));
+}
+
 .font-display { font-family: var(--font-display); }
 .font-mono    { font-family: var(--font-mono); }
 

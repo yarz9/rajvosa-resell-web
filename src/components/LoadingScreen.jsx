@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useT } from '@/i18n/useI18n'
+import { BrandMark } from '@/components/BrandMark'
 
 // Futuristic vault-opening loader. Olive neon, scanline,
 // terminal-style progress counter. Fades after window.load + min 1.4s.
@@ -63,11 +64,14 @@ export function LoadingScreen() {
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             className="relative text-center"
           >
-            <div className="eyebrow mb-5">RAJVOSA · EST. SARAJEVO</div>
-            <div className="wordmark glow font-display font-bold text-[clamp(40px,7vw,84px)] tracking-[0.05em]">
+            <div className="eyebrow mb-7">RAJVOSA · EST. SARAJEVO</div>
+            <div className="flex justify-center mb-7">
+              <BrandMark size="hero" pulse float asLink={false} priority />
+            </div>
+            <div className="wordmark glow font-display font-bold text-[clamp(28px,4vw,44px)] tracking-[0.05em]">
               RAJVOSA<span className="accent">/</span>RESELL
             </div>
-            <div className="mt-6 font-mono text-[11.5px] tracking-[0.32em] uppercase text-white/55">
+            <div className="mt-5 font-mono text-[11.5px] tracking-[0.32em] uppercase text-white/55">
               {t('load.sub')}
             </div>
 

@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { Instagram, MessageCircle, Mail, ArrowUpRight, Heart } from 'lucide-react'
 import { useT } from '@/i18n/useI18n'
 import { BUSINESS } from '@/data/business'
+import { BrandMark } from '@/components/BrandMark'
 
 export function Footer() {
   const t = useT()
@@ -21,8 +22,8 @@ export function Footer() {
         {/* Columns */}
         <div className="grid md:grid-cols-4 gap-10 md:gap-14 border-t border-white/[0.06] pt-12">
           <div className="md:col-span-2">
-            <span className="wordmark glow text-[20px]">RAJVOSA<span className="accent">/</span>RESELL</span>
-            <p className="text-[14px] text-white/55 mt-4 max-w-[420px] leading-relaxed">
+            <BrandMark size="lg" pulse float />
+            <p className="text-[14px] text-white/55 mt-5 max-w-[420px] leading-relaxed">
               Authentic streetwear and limited-release sneakers, sourced and delivered to Bosnia & Herzegovina.
               Custom orders welcome via Instagram or our form.
             </p>

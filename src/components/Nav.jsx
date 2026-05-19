@@ -4,6 +4,7 @@ import { Menu, X, Instagram, MessageCircle, ArrowUpRight } from 'lucide-react'
 import { useI18n, useT } from '@/i18n/useI18n'
 import { SUPPORTED, LANG_LABELS } from '@/i18n/dictionary'
 import { BUSINESS } from '@/data/business'
+import { BrandMark } from '@/components/BrandMark'
 
 const LINKS = [
   ['/shop',    'nav.shop'],
@@ -35,10 +36,13 @@ export function Nav() {
                  : 'bg-transparent'
       }`}>
         <div className="max-w-[1440px] mx-auto px-5 md:px-8 h-[64px] md:h-[72px] flex items-center justify-between gap-6">
-          {/* Wordmark — neon olive */}
-          <Link to="/" className="wordmark glow text-[15px] md:text-[17px] tracking-[0.06em] no-underline text-white">
-            RAJVOSA<span className="accent">/</span>RESELL
-          </Link>
+          {/* Official Rajvosa Resell logo — top-left, scales 40→48px on mobile, 48→56px on desktop */}
+          <span className="block md:hidden">
+            <BrandMark size="md" pulse priority />
+          </span>
+          <span className="hidden md:block">
+            <BrandMark size="lg" pulse priority />
+          </span>
 
           {/* Desktop links */}
           <nav className="hidden lg:flex items-center gap-1">
@@ -89,7 +93,7 @@ export function Nav() {
       {open && (
         <div className="fixed inset-0 z-[60] lg:hidden bg-[#0A0A0A]/98 backdrop-blur-xl flex flex-col">
           <div className="max-w-[1440px] mx-auto w-full px-5 h-[64px] flex items-center justify-between">
-            <span className="wordmark glow text-[15px]">RAJVOSA<span className="accent">/</span>RESELL</span>
+            <BrandMark size="md" pulse asLink={false} />
             <button onClick={() => setOpen(false)} className="w-10 h-10 flex items-center justify-center text-white" aria-label="Close">
               <X size={22} />
             </button>
