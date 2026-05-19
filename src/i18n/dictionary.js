@@ -1,0 +1,193 @@
+export const SUPPORTED = ['en', 'bcs']
+export const LANG_LABELS = { en: 'EN', bcs: 'BHS' }
+
+export const dictionary = {
+  // ── Nav ──
+  'nav.shop':       { en: 'Shop',        bcs: 'Shop' },
+  'nav.brands':     { en: 'Brands',      bcs: 'Brendovi' },
+  'nav.custom':     { en: 'Custom Order',bcs: 'Po narudžbi' },
+  'nav.how':        { en: 'How It Works',bcs: 'Kako radi' },
+  'nav.faq':        { en: 'FAQ',         bcs: 'FAQ' },
+  'nav.contact':    { en: 'Contact',     bcs: 'Kontakt' },
+  'nav.track':      { en: 'Track order', bcs: 'Prati narudžbu' },
+  'nav.cta':        { en: 'Request item',bcs: 'Naruči' },
+
+  // ── Loading ──
+  'load.brand':     { en: 'RAJVOSA RESELL', bcs: 'RAJVOSA RESELL' },
+  'load.sub':       { en: 'Loading the collection…', bcs: 'Učitavanje kolekcije…' },
+
+  // ── Hero ──
+  'hero.eyebrow':   { en: 'EST. SARAJEVO · 100% AUTHENTIC',          bcs: 'EST. SARAJEVO · 100% ORIGINAL' },
+  'hero.h1.a':      { en: 'Your plug for',                            bcs: 'Tvoj plug za' },
+  'hero.h1.b':      { en: 'exclusive',                                bcs: 'ekskluzivnu' },
+  'hero.h1.c':      { en: 'streetwear.',                              bcs: 'streetwear odjeću.' },
+  'hero.sub':       { en: 'Authentic pieces from Corteiz, Trapstar, Essentials, Denim Tears, Nike, Jordan and more — sourced for you with a 50% deposit, delivered to Bosnia in ~3 weeks.',
+                      bcs: 'Originalni komadi Corteiz, Trapstar, Essentials, Denim Tears, Nike, Jordan i drugih — nabavljamo za tebe uz 50% depozit, dostava u Bosnu za ~3 sedmice.' },
+  'hero.cta':       { en: 'Shop the collection',  bcs: 'Pogledaj kolekciju' },
+  'hero.cta2':      { en: 'Request custom item',  bcs: 'Naruči po želji' },
+  'hero.cta3':      { en: 'How ordering works',   bcs: 'Kako naručiti' },
+
+  // ── Trust strip ──
+  'strip.auth':     { en: '100% Authentic',          bcs: '100% Originalno' },
+  'strip.deposit':  { en: 'Secure 50% deposit',      bcs: 'Sigurnih 50% depozita' },
+  'strip.delivery': { en: '~3 week delivery',        bcs: 'Dostava ~3 sedmice' },
+  'strip.custom':   { en: 'Custom orders welcome',   bcs: 'Po narudžbi dobrodošlo' },
+
+  // ── Featured ──
+  'feat.eyebrow':   { en: 'IN THE VAULT',         bcs: 'U TREZORU' },
+  'feat.title':     { en: 'Featured drops',       bcs: 'Izdvojeno' },
+  'feat.cta':       { en: 'See full catalog →',   bcs: 'Cijeli katalog →' },
+
+  // ── Brands strip ──
+  'brand.eyebrow':  { en: 'AUTHORIZED CATALOG',   bcs: 'OVLAŠTENI KATALOG' },
+  'brand.title':    { en: 'Brands we source',     bcs: 'Brendovi koje nabavljamo' },
+
+  // ── How It Works ──
+  'how.eyebrow':    { en: 'THE PROCESS',          bcs: 'PROCES' },
+  'how.title':      { en: 'Seven steps from drop to delivery.', bcs: 'Sedam koraka od narudžbe do dostave.' },
+  'how.s1.t':       { en: 'Submit your order',        bcs: 'Pošalji narudžbu' },
+  'how.s1.d':       { en: 'Pick from the catalog or send us any item you want sourced.',
+                      bcs: 'Odaberi iz kataloga ili pošalji bilo koji komad koji želiš da nabavimo.' },
+  'how.s2.t':       { en: 'Confirm availability',     bcs: 'Provjera dostupnosti' },
+  'how.s2.d':       { en: 'We check sourcing options + give you a final price within 24h.',
+                      bcs: 'Provjeravamo opcije i šaljemo finalnu cijenu u roku od 24h.' },
+  'how.s3.t':       { en: 'Pay 50% deposit',          bcs: '50% depozit' },
+  'how.s3.d':       { en: 'Bank transfer, cash or crypto. Your order is locked in.',
+                      bcs: 'Banka, keš ili crypto. Narudžba je rezervirana.' },
+  'how.s4.t':       { en: 'We source the piece',      bcs: 'Mi nabavljamo' },
+  'how.s4.d':       { en: 'From verified partners — every item authenticated before shipping.',
+                      bcs: 'Od provjerenih partnera — svaki komad provjeren prije slanja.' },
+  'how.s5.t':       { en: 'Ships to Bosnia (~3 weeks)', bcs: 'Šalje se u Bosnu (~3 sedmice)' },
+  'how.s5.d':       { en: 'Track the package every step. Photo confirmation on arrival.',
+                      bcs: 'Prati paket u svakom koraku. Foto potvrda po dolasku.' },
+  'how.s6.t':       { en: 'Pay the remaining 50%',    bcs: 'Plati preostalih 50%' },
+  'how.s6.d':       { en: 'Settle the rest before final delivery. No surprises.',
+                      bcs: 'Plati ostatak prije konačne dostave. Bez iznenađenja.' },
+  'how.s7.t':       { en: 'Receive your item',        bcs: 'Preuzmi komad' },
+  'how.s7.d':       { en: 'Personal hand-off in Sarajevo or shipped anywhere in BiH.',
+                      bcs: 'Lična predaja u Sarajevu ili šaljemo bilo gdje u BiH.' },
+
+  // ── Trust block (long form) ──
+  'trust.title':    { en: 'Why hundreds order through us.', bcs: 'Zašto stotine naručuje preko nas.' },
+  'trust.p1':       { en: 'Every item passes a manual authentication check before it leaves our partner. If we can\'t verify it, you don\'t pay for it.',
+                      bcs: 'Svaki komad prolazi ručnu provjeru autentičnosti prije nego napusti partnera. Ako ne možemo potvrditi, ne plaćaš.' },
+  'trust.p2':       { en: 'The 50% deposit secures sourcing capacity for your specific size and colour — so you\'re never competing with bots on drop day.',
+                      bcs: '50% depozit rezervira nabavku za tvoju veličinu i boju — nikad se ne takmičiš sa botovima na drop danu.' },
+  'trust.p3':       { en: 'No hidden fees, no riverbank pricing. The number you see is the number you pay, split 50/50.',
+                      bcs: 'Bez skrivenih taksi, bez naknadnog cjenkanja. Cijena koju vidiš je cijena koju plaćaš, podijeljena 50/50.' },
+
+  // ── Reviews ──
+  'rev.eyebrow':    { en: 'WORD ON THE STREET',    bcs: 'GLAS ULICE' },
+  'rev.title':      { en: 'They came for the pieces, stayed for the plug.',
+                      bcs: 'Došli su po komade, ostali zbog konekta.' },
+  'rev.q1':         { en: 'Got my Trapstar puffer exactly when they said. The deposit thing felt sketchy at first but everything was clean.',
+                      bcs: 'Dobio sam Trapstar pufericu tačno kad su rekli. Depozit mi je u početku djelovao sumnjivo ali sve je čisto.' },
+  'rev.q1.who':     { en: 'Adi · Sarajevo',        bcs: 'Adi · Sarajevo' },
+  'rev.q2':         { en: 'They sourced a pair of Travis Scotts I couldn\'t find anywhere. Real ones. Will use again.',
+                      bcs: 'Nabavili su mi Travise koje nigdje nisam mogao naći. Originali. Koristit ću opet.' },
+  'rev.q2.who':     { en: 'Maja · Banja Luka',     bcs: 'Maja · Banja Luka' },
+  'rev.q3':         { en: 'Custom Real Madrid jersey with my name. Quality is identical to the store. Fast.',
+                      bcs: 'Custom Real dres sa mojim imenom. Kvalitet identičan kao u trgovini. Brzo.' },
+  'rev.q3.who':     { en: 'Emir · Mostar',         bcs: 'Emir · Mostar' },
+
+  // ── Shop ──
+  'shop.title':     { en: 'The vault',              bcs: 'Trezor' },
+  'shop.sub':       { en: 'Every piece is authenticated. Order anything — we\'ll source it.',
+                      bcs: 'Svaki komad je provjeren. Naruči bilo šta — nabavit ćemo.' },
+  'shop.search':    { en: 'Search products, brands…', bcs: 'Pretraga proizvoda, brendova…' },
+  'shop.filter.brand':    { en: 'Brand',     bcs: 'Brend' },
+  'shop.filter.category': { en: 'Category',  bcs: 'Kategorija' },
+  'shop.filter.all':      { en: 'All',       bcs: 'Sve' },
+  'shop.empty':     { en: 'No matches. Try a different filter — or request it as a custom order.',
+                      bcs: 'Nema rezultata. Pokušaj drugi filter — ili naruči po želji.' },
+  'shop.count':     { en: 'pieces in the vault', bcs: 'komada u trezoru' },
+
+  // ── Product card ──
+  'card.deposit':   { en: 'deposit',         bcs: 'depozit' },
+  'card.view':      { en: 'View piece',      bcs: 'Pogledaj' },
+
+  // ── Product detail ──
+  'pdp.brand':      { en: 'Brand',           bcs: 'Brend' },
+  'pdp.cat':        { en: 'Category',        bcs: 'Kategorija' },
+  'pdp.size':       { en: 'Select size',     bcs: 'Odaberi veličinu' },
+  'pdp.delivery':   { en: 'Estimated delivery', bcs: 'Procijenjena dostava' },
+  'pdp.deposit50':  { en: '50% deposit secures your order. Pay the remaining 50% before delivery.',
+                      bcs: '50% depozit rezervira narudžbu. Ostatak plaćaš prije isporuke.' },
+  'pdp.now':        { en: 'Pay now (50%)',   bcs: 'Plati sada (50%)' },
+  'pdp.later':      { en: 'On arrival (50%)',bcs: 'Po dolasku (50%)' },
+  'pdp.reserve':    { en: 'Reserve this piece', bcs: 'Rezerviraj ovaj komad' },
+  'pdp.ask':        { en: 'Ask on Instagram',bcs: 'Pitaj na Instagramu' },
+  'pdp.related':    { en: 'You may also like', bcs: 'Možda ti se sviđa' },
+  'pdp.authenticated': { en: 'Manually authenticated', bcs: 'Ručno provjereno' },
+
+  // ── Custom order ──
+  'co.eyebrow':     { en: 'CAN\'T FIND IT?',     bcs: 'NE MOŽEŠ NAĆI?' },
+  'co.title':       { en: 'Request any piece. We\'ll source it.',
+                      bcs: 'Naruči bilo šta. Nabavit ćemo.' },
+  'co.sub':         { en: 'Drop a link, a screenshot, or just the name. Reply within 24 hours.',
+                      bcs: 'Pošalji link, screenshot ili ime. Odgovor u roku od 24 sata.' },
+  'co.f.name':      { en: 'Your name',          bcs: 'Tvoje ime' },
+  'co.f.email':     { en: 'Email',              bcs: 'Email' },
+  'co.f.phone':     { en: 'Phone / WhatsApp',   bcs: 'Telefon / WhatsApp' },
+  'co.f.ig':        { en: 'Instagram (optional)', bcs: 'Instagram (opciono)' },
+  'co.f.brand':     { en: 'Brand',              bcs: 'Brend' },
+  'co.f.product':   { en: 'Product name',       bcs: 'Naziv proizvoda' },
+  'co.f.size':      { en: 'Size',               bcs: 'Veličina' },
+  'co.f.color':     { en: 'Colour',             bcs: 'Boja' },
+  'co.f.budget':    { en: 'Budget (KM)',        bcs: 'Budžet (KM)' },
+  'co.f.url':       { en: 'Reference link',     bcs: 'Referentni link' },
+  'co.f.notes':     { en: 'Anything else?',     bcs: 'Bilo šta drugo?' },
+  'co.f.submit':    { en: 'Send request',       bcs: 'Pošalji upit' },
+  'co.f.sending':   { en: 'Sending…',           bcs: 'Šaljem…' },
+  'co.success.t':   { en: 'Request received.',  bcs: 'Upit primljen.' },
+  'co.success.d':   { en: 'We\'ll get back to you within 24 hours with a final price and sourcing window.',
+                      bcs: 'Javljamo se u roku od 24 sata sa finalnom cijenom i rokom.' },
+
+  // ── FAQ ──
+  'faq.title':      { en: 'Common questions',   bcs: 'Česta pitanja' },
+  'faq.q1':         { en: 'How does the 50% deposit work?', bcs: 'Kako funkcioniše 50% depozit?' },
+  'faq.a1':         { en: 'You pay 50% to confirm the order. We source the piece. You pay the remaining 50% before final delivery. Deposits are non-refundable once sourcing has started.',
+                      bcs: 'Plaćaš 50% za potvrdu narudžbe. Mi nabavljamo komad. Plaćaš preostalih 50% prije isporuke. Depozit nije povratan nakon početka nabavke.' },
+  'faq.q2':         { en: 'How long does delivery take?', bcs: 'Koliko traje dostava?' },
+  'faq.a2':         { en: 'Most items arrive in 2–3 weeks. Rarer pieces or special editions can take 3–4 weeks. We always quote a realistic window before you pay.',
+                      bcs: 'Većina stiže za 2–3 sedmice. Rjeđi komadi ili posebna izdanja 3–4 sedmice. Uvijek navodimo realan rok prije plaćanja.' },
+  'faq.q3':         { en: 'Are products authentic?', bcs: 'Da li su proizvodi originalni?' },
+  'faq.a3':         { en: 'Yes. Every item is manually authenticated before it leaves our partner. If we can\'t verify it, you don\'t pay — and we won\'t ship it.',
+                      bcs: 'Da. Svaki komad se ručno provjerava prije slanja. Ako ne možemo potvrditi, ne plaćaš — i ne šaljemo.' },
+  'faq.q4':         { en: 'Can I request items not listed?', bcs: 'Mogu li tražiti komade koji nisu u katalogu?' },
+  'faq.a4':         { en: 'Absolutely — that\'s most of our business. Use the Custom Order page or DM us on Instagram.',
+                      bcs: 'Naravno — to je većina onoga što radimo. Koristi Custom Order stranicu ili nam piši na Instagram.' },
+  'faq.q5':         { en: 'What brands do you source?', bcs: 'Koje brendove nabavljate?' },
+  'faq.a5':         { en: 'Corteiz, Trapstar, Essentials, Denim Tears, Ami Paris, Nike, Jordan, Adidas, plus most football jerseys and limited sneaker releases. Ask if you don\'t see yours.',
+                      bcs: 'Corteiz, Trapstar, Essentials, Denim Tears, Ami Paris, Nike, Jordan, Adidas, plus većinu fudbalskih dresova i limited sneaker izdanja. Pitaj ako ne vidiš svoj.' },
+  'faq.q6':         { en: 'What payment methods do you accept?', bcs: 'Koje načine plaćanja prihvatate?' },
+  'faq.a6':         { en: 'Bank transfer, cash in Sarajevo, or crypto (USDT). Choose whatever\'s easiest — we accept all three for both halves.',
+                      bcs: 'Banka, keš u Sarajevu, ili crypto (USDT). Prihvatamo sva tri načina za obje polovine.' },
+
+  // ── Contact ──
+  'contact.title':  { en: 'Get in touch',     bcs: 'Javi se' },
+  'contact.sub':    { en: 'Instagram is fastest — we live in DMs.', bcs: 'Instagram je najbrži — živimo u DM-ovima.' },
+  'contact.dm':     { en: 'DM on Instagram',  bcs: 'DM na Instagramu' },
+  'contact.wa':     { en: 'WhatsApp us',      bcs: 'Piši na WhatsApp' },
+  'contact.email':  { en: 'Send an email',    bcs: 'Pošalji email' },
+
+  // ── Order tracking ──
+  'track.title':    { en: 'Track your order', bcs: 'Prati narudžbu' },
+  'track.sub':      { en: 'Enter the order code we sent you on Instagram or email.',
+                      bcs: 'Unesi šifru narudžbe koju smo ti poslali na Instagram ili email.' },
+  'track.field':    { en: 'Order code',       bcs: 'Šifra narudžbe' },
+  'track.cta':      { en: 'Show status',      bcs: 'Prikaži status' },
+  'track.example':  { en: 'Example: RR-2025-0421',  bcs: 'Primjer: RR-2025-0421' },
+  'track.notfound': { en: 'Order not found. DM us on Instagram — we\'ll find it manually.',
+                      bcs: 'Narudžba nije pronađena. Piši nam na Instagram — pronaći ćemo ručno.' },
+  'track.step.deposit':  { en: 'Deposit received',     bcs: 'Depozit primljen' },
+  'track.step.sourcing': { en: 'Sourcing the piece',   bcs: 'Nabavlja se' },
+  'track.step.transit':  { en: 'In transit',           bcs: 'U transportu' },
+  'track.step.arrived':  { en: 'Arrived in Bosnia',    bcs: 'Stiglo u Bosnu' },
+  'track.step.final':    { en: 'Ready for final payment', bcs: 'Spremno za doplatu' },
+  'track.step.delivered':{ en: 'Delivered',             bcs: 'Isporučeno' },
+
+  // ── Footer ──
+  'foot.sign':      { en: 'Sarajevo. Worldwide pieces.', bcs: 'Sarajevo. Svjetski komadi.' },
+  'foot.copy':      { en: 'All rights reserved.', bcs: 'Sva prava zadržana.' },
+}

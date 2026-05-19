@@ -1,0 +1,5 @@
+# Pin Node 20 for the Railway/Nixpacks build.
+# Tailwind v4's @tailwindcss/oxide ships a native Rust binding that
+# requires Node >= 20 — Node 18 lacks the ABI it's built against.
+[phases.setup]
+nixPkgs = ["nodejs_20", "npm-9_x"]
