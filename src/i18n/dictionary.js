@@ -17,21 +17,21 @@ export const dictionary = {
   'load.sub':       { en: 'Loading the collection…', bcs: 'Učitavanje kolekcije…' },
 
   // ── Hero ──
-  'hero.eyebrow':   { en: 'EST. SARAJEVO · 100% AUTHENTIC',          bcs: 'EST. SARAJEVO · 100% ORIGINAL' },
+  'hero.eyebrow':   { en: 'EST. SARAJEVO · 48H DELIVERY IN BIH',     bcs: 'EST. SARAJEVO · DOSTAVA 48H U BIH' },
   'hero.h1.a':      { en: 'Your plug for',                            bcs: 'Tvoj plug za' },
   'hero.h1.b':      { en: 'exclusive',                                bcs: 'ekskluzivnu' },
   'hero.h1.c':      { en: 'streetwear.',                              bcs: 'streetwear odjeću.' },
-  'hero.sub':       { en: 'Authentic pieces from Corteiz, Trapstar, Essentials, Denim Tears, Nike, Jordan and more — sourced for you with a 50% deposit, delivered to Bosnia in ~3 weeks.',
+  'hero.sub':       { en: 'Corteiz, Trapstar, Essentials, Denim Tears, Nike, Jordan and more — in-stock pieces delivered across Bosnia in 48h, custom orders sourced in ~3 weeks with a 50% deposit.',
                       bcs: 'Originalni komadi Corteiz, Trapstar, Essentials, Denim Tears, Nike, Jordan i drugih — nabavljamo za tebe uz 50% depozit, dostava u Bosnu za ~3 sedmice.' },
   'hero.cta':       { en: 'Shop the collection',  bcs: 'Pogledaj kolekciju' },
   'hero.cta2':      { en: 'Request custom item',  bcs: 'Naruči po želji' },
   'hero.cta3':      { en: 'How ordering works',   bcs: 'Kako naručiti' },
 
   // ── Trust strip ──
-  'strip.auth':     { en: '100% Authentic',          bcs: '100% Originalno' },
-  'strip.deposit':  { en: 'Secure 50% deposit',      bcs: 'Sigurnih 50% depozita' },
-  'strip.delivery': { en: '~3 week delivery',        bcs: 'Dostava ~3 sedmice' },
-  'strip.custom':   { en: 'Custom orders welcome',   bcs: 'Po narudžbi dobrodošlo' },
+  'strip.auth':     { en: '48h delivery in BiH',     bcs: 'Dostava 48h u BiH' },
+  'strip.deposit':  { en: 'Pickup in Sarajevo',      bcs: 'Preuzimanje u Sarajevu' },
+  'strip.delivery': { en: '50% deposit · custom orders', bcs: '50% depozit · po narudžbi' },
+  'strip.custom':   { en: 'DM @rajvosa_resell',      bcs: 'DM @rajvosa_resell' },
 
   // ── Featured ──
   'feat.eyebrow':   { en: 'IN THE VAULT',         bcs: 'U TREZORU' },
@@ -55,8 +55,8 @@ export const dictionary = {
   'how.s3.d':       { en: 'Bank transfer, cash or crypto. Your order is locked in.',
                       bcs: 'Banka, keš ili crypto. Narudžba je rezervirana.' },
   'how.s4.t':       { en: 'We source the piece',      bcs: 'Mi nabavljamo' },
-  'how.s4.d':       { en: 'From verified partners — every item authenticated before shipping.',
-                      bcs: 'Od provjerenih partnera — svaki komad provjeren prije slanja.' },
+  'how.s4.d':       { en: 'We handle the entire sourcing process and keep you updated as it moves.',
+                      bcs: 'Vodimo cijeli proces nabavke i obavještavamo te kako napreduje.' },
   'how.s5.t':       { en: 'Ships to Bosnia (~3 weeks)', bcs: 'Šalje se u Bosnu (~3 sedmice)' },
   'how.s5.d':       { en: 'Track the package every step. Photo confirmation on arrival.',
                       bcs: 'Prati paket u svakom koraku. Foto potvrda po dolasku.' },
@@ -69,8 +69,8 @@ export const dictionary = {
 
   // ── Trust block (long form) ──
   'trust.title':    { en: 'Why hundreds order through us.', bcs: 'Zašto stotine naručuje preko nas.' },
-  'trust.p1':       { en: 'Every item passes a manual authentication check before it leaves our partner. If we can\'t verify it, you don\'t pay for it.',
-                      bcs: 'Svaki komad prolazi ručnu provjeru autentičnosti prije nego napusti partnera. Ako ne možemo potvrditi, ne plaćaš.' },
+  'trust.p1':       { en: 'In-stock pieces ship anywhere in Bosnia & Herzegovina within 48 hours. Sarajevo? Meet us in person.',
+                      bcs: 'Komadi na stanju dostavljaju se širom Bosne i Hercegovine u roku od 48 sati. Sarajevo? Vidimo se uživo.' },
   'trust.p2':       { en: 'The 50% deposit secures sourcing capacity for your specific size and colour — so you\'re never competing with bots on drop day.',
                       bcs: '50% depozit rezervira nabavku za tvoju veličinu i boju — nikad se ne takmičiš sa botovima na drop danu.' },
   'trust.p3':       { en: 'No hidden fees, no riverbank pricing. The number you see is the number you pay, split 50/50.',
@@ -92,8 +92,8 @@ export const dictionary = {
 
   // ── Shop ──
   'shop.title':     { en: 'The vault',              bcs: 'Trezor' },
-  'shop.sub':       { en: 'Every piece is authenticated. Order anything — we\'ll source it.',
-                      bcs: 'Svaki komad je provjeren. Naruči bilo šta — nabavit ćemo.' },
+  'shop.sub':       { en: 'In-stock pieces ready to ship across BiH in 48 hours — or picked up in Sarajevo.',
+                      bcs: 'Komadi na stanju, dostava u 48h širom BiH ili lično preuzimanje u Sarajevu.' },
   'shop.search':    { en: 'Search products, brands…', bcs: 'Pretraga proizvoda, brendova…' },
   'shop.filter.brand':    { en: 'Brand',     bcs: 'Brend' },
   'shop.filter.category': { en: 'Category',  bcs: 'Kategorija' },
@@ -118,7 +118,9 @@ export const dictionary = {
   'pdp.reserve':    { en: 'Reserve this piece', bcs: 'Rezerviraj ovaj komad' },
   'pdp.ask':        { en: 'Ask on Instagram',bcs: 'Pitaj na Instagramu' },
   'pdp.related':    { en: 'You may also like', bcs: 'Možda ti se sviđa' },
-  'pdp.authenticated': { en: 'Manually authenticated', bcs: 'Ručno provjereno' },
+  'pdp.in_stock':   { en: 'In stock · 48h delivery in BiH', bcs: 'Na stanju · 48h dostava u BiH' },
+  'pdp.pickup':     { en: 'Pickup available in Sarajevo',   bcs: 'Lično preuzimanje u Sarajevu' },
+  'pdp.limited':    { en: 'Limited availability',           bcs: 'Ograničena dostupnost' },
 
   // ── Custom order ──
   'co.eyebrow':     { en: 'CAN\'T FIND IT?',     bcs: 'NE MOŽEŠ NAĆI?' },
@@ -151,9 +153,9 @@ export const dictionary = {
   'faq.q2':         { en: 'How long does delivery take?', bcs: 'Koliko traje dostava?' },
   'faq.a2':         { en: 'Most items arrive in 2–3 weeks. Rarer pieces or special editions can take 3–4 weeks. We always quote a realistic window before you pay.',
                       bcs: 'Većina stiže za 2–3 sedmice. Rjeđi komadi ili posebna izdanja 3–4 sedmice. Uvijek navodimo realan rok prije plaćanja.' },
-  'faq.q3':         { en: 'Are products authentic?', bcs: 'Da li su proizvodi originalni?' },
-  'faq.a3':         { en: 'Yes. Every item is manually authenticated before it leaves our partner. If we can\'t verify it, you don\'t pay — and we won\'t ship it.',
-                      bcs: 'Da. Svaki komad se ručno provjerava prije slanja. Ako ne možemo potvrditi, ne plaćaš — i ne šaljemo.' },
+  'faq.q3':         { en: 'How does delivery work for in-stock pieces?', bcs: 'Kako funkcioniše dostava za komade na stanju?' },
+  'faq.a3':         { en: 'In-stock pieces ship anywhere in Bosnia & Herzegovina within 48 hours. If you\'re in Sarajevo, you can also pick up in person at a mutually agreed location — usually same day.',
+                      bcs: 'Komadi na stanju dostavljaju se širom Bosne i Hercegovine u roku od 48 sati. Ako si u Sarajevu, možeš preuzeti lično na dogovorenoj lokaciji — obično isti dan.' },
   'faq.q4':         { en: 'Can I request items not listed?', bcs: 'Mogu li tražiti komade koji nisu u katalogu?' },
   'faq.a4':         { en: 'Absolutely — that\'s most of our business. Use the Custom Order page or DM us on Instagram.',
                       bcs: 'Naravno — to je većina onoga što radimo. Koristi Custom Order stranicu ili nam piši na Instagram.' },

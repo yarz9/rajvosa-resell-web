@@ -3,13 +3,12 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
 import {
   ArrowUpRight, ArrowRight, ShieldCheck, Clock, Sparkles, BadgeCheck,
-  Instagram, MessageCircle, Quote, Truck, Wallet, PackageCheck,
+  Instagram, MessageCircle, Quote, Truck, Wallet, PackageCheck, MapPin,
 } from 'lucide-react'
 import { useT } from '@/i18n/useI18n'
 import { ProductCard } from '@/components/ProductCard'
 import { AnimatedLogo } from '@/components/brand/AnimatedLogo'
 import { ParticleField, AmbientGlow } from '@/components/brand/Atmosphere'
-import { AuthBadge } from '@/components/ui/AuthBadge'
 import { featured, BRANDS } from '@/data/products'
 import { BUSINESS } from '@/data/business'
 
@@ -80,12 +79,17 @@ function Hero() {
             <AnimatedLogo variant="hero" pulse float interactive asLink={false} priority />
           </motion.div>
 
-          {/* Holographic authenticity badge */}
+          {/* Delivery + pickup chips (replaces the previous authenticity badge) */}
           <motion.div
             initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-            className="hidden lg:flex mb-4">
-            <AuthBadge size="md" />
+            transition={{ duration: 0.6, delay: 0.55 }}
+            className="hidden lg:flex flex-wrap gap-2 mb-5">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full chip neon">
+              <Truck size={11} /> 48h delivery in BiH
+            </span>
+            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full chip">
+              <MapPin size={11} /> Pickup in Sarajevo
+            </span>
           </motion.div>
 
           <motion.div
@@ -209,10 +213,10 @@ function HeroProductStack() {
 function TrustStrip() {
   const t = useT()
   const items = [
-    { icon: BadgeCheck, label: t('strip.auth') },
-    { icon: ShieldCheck, label: t('strip.deposit') },
-    { icon: Clock,       label: t('strip.delivery') },
-    { icon: Sparkles,    label: t('strip.custom') },
+    { icon: Truck,    label: t('strip.auth') },     // 48h delivery in BiH
+    { icon: MapPin,   label: t('strip.deposit') },  // Pickup in Sarajevo
+    { icon: Wallet,   label: t('strip.delivery') }, // 50% deposit · custom
+    { icon: Instagram, label: t('strip.custom') },  // DM @rajvosa_resell
   ]
   return (
     <section className="relative border-y border-white/[0.06] bg-[#111]/40 backdrop-blur-sm">

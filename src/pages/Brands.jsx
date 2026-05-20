@@ -8,12 +8,12 @@ export default function Brands() {
     <div className="pt-32 md:pt-40 pb-24 px-5 md:px-8">
       <div className="max-w-[1440px] mx-auto">
         <div className="mb-12 md:mb-16">
-          <div className="eyebrow mb-3">AUTHORIZED CATALOG · {BRANDS.length} HOUSES</div>
+          <div className="eyebrow mb-3">THE CATALOG · {BRANDS.length} HOUSES</div>
           <h1 className="font-display font-semibold text-[clamp(44px,7vw,96px)] leading-[0.95] tracking-tight">
             The houses<br /><span className="shimmer-text">we source.</span>
           </h1>
           <p className="mt-6 text-[16px] md:text-[18px] text-white/65 max-w-[640px]">
-            Every brand below is sourced through verified partners and authenticated before shipping.
+            In-stock pieces ship across Bosnia & Herzegovina in 48 hours — or you can pick up in Sarajevo.
             Don't see what you want? <Link to="/custom" className="link-neon">Request a custom order →</Link>
           </p>
         </div>

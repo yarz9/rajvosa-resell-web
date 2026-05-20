@@ -51,7 +51,7 @@ export function Nav() {
                 <span className="live-dot" /> LIVE
               </span>
               <span className="font-mono text-[10px] tracking-[0.18em] uppercase text-white/45 mt-1">
-                Authentic Streetwear
+                Sarajevo · BiH-wide 48h
               </span>
             </span>
           </div>

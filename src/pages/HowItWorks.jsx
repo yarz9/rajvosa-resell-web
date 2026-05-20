@@ -63,9 +63,9 @@ export default function HowItWorks() {
         {/* Trust badges */}
         <div className="mt-16 grid sm:grid-cols-3 gap-4">
           {[
-            { t: '100% Authentic', d: 'Manually checked before shipping.' },
-            { t: '50% deposit only', d: 'Pay the rest before final delivery.' },
-            { t: '~3 week delivery', d: 'Realistic, honest, every time.' },
+            { t: '48h delivery in BiH', d: 'In-stock pieces ship anywhere in the country.' },
+            { t: 'Pickup in Sarajevo',  d: 'Personal hand-off at a mutually agreed spot.' },
+            { t: '50% deposit · ~3 weeks', d: 'Custom orders: 50% now, 50% on arrival.' },
           ].map((b, i) => (
             <motion.div key={i}
               initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }}

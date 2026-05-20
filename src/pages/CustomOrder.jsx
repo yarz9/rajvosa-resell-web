@@ -127,13 +127,13 @@ export default function CustomOrder() {
           </p>
         </div>
 
-        {/* Deposit / delivery reminder strip */}
+        {/* Deposit / delivery reminder strip — real Rajvosa Resell business rules */}
         <div className="mb-10 grid sm:grid-cols-4 gap-3 max-w-[920px] mx-auto">
           {[
-            ['50% deposit',  'to secure the order'],
-            ['~3 weeks',     'typical delivery'],
-            ['Remaining 50%','paid on arrival'],
-            ['100% authentic','sourcing only'],
+            ['50% deposit',   'confirms your order'],
+            ['~3 weeks',      'typical sourcing + delivery'],
+            ['Remaining 50%', 'paid when the piece arrives'],
+            ['Delivery',      'BiH-wide · pickup in Sarajevo'],
           ].map(([h, sub]) => (
             <div key={h} className="text-center vault-card p-3">
               <div className="font-display font-semibold text-[14.5px] text-[var(--color-olive-glow)]">{h}</div>

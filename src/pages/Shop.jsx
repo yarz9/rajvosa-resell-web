@@ -29,9 +29,8 @@ function adapt(p) {
 }
 
 function deliveryLabel(b) {
-  if (b === 'same_day') return 'Same-day pickup'
-  if (b === '24h')      return '24h delivery'
-  return 'Ready for delivery'
+  if (b === 'same_day') return 'Pickup in Sarajevo'
+  return '48h delivery in BiH'
 }
 
 export default function Shop() {
@@ -97,11 +96,11 @@ export default function Shop() {
           </p>
         </div>
 
-        {/* Delivery badge legend */}
+        {/* Delivery legend — real Rajvosa Resell logistics */}
         <div className="mb-8 flex flex-wrap gap-2.5 text-[11.5px]">
-          <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full chip neon"><Truck size={11} /> Ready for delivery</span>
-          <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full chip"><Clock size={11} /> 24h delivery</span>
-          <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full chip"><MapPin size={11} /> Same-day pickup</span>
+          <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full chip neon"><Truck size={11} /> 48h delivery in BiH</span>
+          <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full chip"><MapPin size={11} /> Pickup in Sarajevo</span>
+          <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full chip"><Clock size={11} /> Limited availability</span>
         </div>
 
         {/* Filters */}

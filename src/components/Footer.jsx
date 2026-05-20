@@ -24,7 +24,7 @@ export function Footer() {
           <div className="md:col-span-2">
             <AnimatedLogo variant="default" size={64} pulse float />
             <p className="text-[14px] text-white/55 mt-5 max-w-[420px] leading-relaxed">
-              Authentic streetwear and limited-release sneakers, sourced and delivered to Bosnia & Herzegovina.
+              Premium streetwear delivered across Bosnia & Herzegovina in 48h — or picked up in Sarajevo.
               Custom orders welcome via Instagram or our form.
             </p>
           </div>
@@ -60,8 +60,15 @@ export function Footer() {
           </div>
         </div>
 
+        {/* Reseller disclaimer */}
+        <div className="mt-12 pt-6 border-t border-white/[0.06]">
+          <p className="text-[12px] md:text-[12.5px] text-white/45 leading-relaxed max-w-[780px]">
+            {BUSINESS.disclaimer}
+          </p>
+        </div>
+
         {/* Bottom rail */}
-        <div className="mt-12 pt-6 border-t border-white/[0.06] flex flex-col md:flex-row items-center justify-between gap-3 text-[11.5px] text-white/40 font-mono uppercase tracking-[0.18em]">
+        <div className="mt-6 pt-5 border-t border-white/[0.04] flex flex-col md:flex-row items-center justify-between gap-3 text-[11.5px] text-white/40 font-mono uppercase tracking-[0.18em]">
           <div>© {year} {BUSINESS.name}. {t('foot.copy')}</div>
           <div className="flex items-center gap-2">
             <Heart size={11} className="text-[var(--color-olive-glow)]" />

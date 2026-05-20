@@ -12,7 +12,6 @@ import { BUSINESS } from '@/data/business'
 import { ProductCard } from '@/components/ProductCard'
 import { useToast } from '@/components/ui/Toast'
 import { api, apiConfigured } from '@/lib/api'
-import { AuthBadge } from '@/components/ui/AuthBadge'
 
 function adapt(p) {
   if (!p) return null
@@ -20,9 +19,10 @@ function adapt(p) {
     slug: p.slug, name: p.name, brand: p.brand, category: p.category,
     price: p.price, currency: p.currency || 'KM',
     depositAmount: Math.round((p.price || 0) / 2),
-    deliveryEstimate: p.delivery_badge === 'same_day' ? 'Same-day pickup'
-                    : p.delivery_badge === '24h'      ? '24h delivery'
-                    : 'Ready for delivery',
+    // Delivery model: 48h in BiH OR Sarajevo pickup. The backend
+    // enum (ready | 24h | same_day) maps onto the new labels.
+    deliveryEstimate: p.delivery_badge === 'same_day' ? 'Pickup in Sarajevo'
+                    : '48h delivery in BiH',
     images: (p.images && p.images.length ? p.images.map(i => i.url || i) : []) || [],
     sizes: p.sizes || [],
     description: p.description || '',
@@ -115,8 +115,13 @@ export default function ProductDetail() {
             <div className="eyebrow mb-3">{p.brand} · {p.category}</div>
             <h1 className="font-display font-semibold text-[clamp(30px,4vw,52px)] leading-[1.05] tracking-tight">{p.name}</h1>
 
-            <div className="mt-5">
-              <AuthBadge size="sm" />
+            <div className="mt-5 flex flex-wrap gap-2">
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full chip neon">
+                <Truck size={11} /> {t('pdp.in_stock')}
+              </span>
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full chip">
+                <MapPin size={11} /> {t('pdp.pickup')}
+              </span>
             </div>
 
             <div className="mt-6 flex items-baseline gap-4">
@@ -174,6 +179,11 @@ export default function ProductDetail() {
                 </a>
               </div>
             </div>
+
+            {/* Reseller disclaimer */}
+            <p className="mt-8 text-[11.5px] text-white/40 leading-relaxed border-t border-white/[0.06] pt-5">
+              {BUSINESS.disclaimer}
+            </p>
           </div>
         </div>
 
@@ -226,7 +236,7 @@ function ReserveModal({ product, size, onClose }) {
       } else {
         await new Promise(r => setTimeout(r, 600))
         setDone({ code: 'CONCEPT-PREVIEW' })
-        push({ kind: 'success', title: 'Reservation held (preview)', body: 'No backend wired yet — DM @rajvosaresell.' })
+        push({ kind: 'success', title: 'Reservation held (preview)', body: 'No backend wired yet — DM @rajvosa_resell.' })
       }
     } catch (e) {
       setErr(e.message || 'Could not reserve.'); push({ kind: 'error', title: 'Reserve failed', body: e.message })
